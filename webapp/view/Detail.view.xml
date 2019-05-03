@@ -1,0 +1,119 @@
+<mvc:View
+	controllerName="com.bethyllabs.SmartOrderManagement.controller.Detail"
+	xmlns="sap.m"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<semantic:SemanticPage
+		id="detailPage"
+	
+		>
+		<semantic:titleHeading>
+			<Title
+				text="Order Details"
+				level="H2"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<ObjectAttribute title="Customer ID" text="{detailView>/Ship-toPa}"/>
+		
+				<ObjectAttribute title = "City" text="{detailView>City}" />
+			
+		</semantic:headerContent>
+		<semantic:content>
+			<Table
+				id="lineItemsList"
+				width="auto"
+				items="{detailView>/}"
+				updateFinished=".onListUpdateFinished"
+				noDataText="{i18n>detailLineItemTableNoDataText}"
+				busyIndicatorDelay="{detailView>/lineItemTableDelay}">
+				<headerToolbar>
+					<Toolbar>
+						<Title
+							id="lineItemsTitle"
+							text="Orders(10)"
+							titleStyle="H3"
+							level="H3"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Item"/>
+					</Column>
+					<Column>
+						<Text text="Material"/>
+					</Column>
+					<Column>
+						<Text text="Ship-to"/>
+					</Column>
+					<Column>
+						<Text text="Createdon"/>
+					</Column>
+					<Column>
+						<Text text="Status"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier
+								title="{detailView>Item}"
+								/>
+					<Text
+						text="{detailView>Material}" />
+					<Text
+						text="{detailView>Ship-toName}" />
+							<Text
+						text="{detailView>Createdon}" />
+					<Text
+						text="{detailView>Status}" />
+						
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+			<semantic:addAction>
+			<semantic:AddAction />
+		</semantic:addAction>
+
+		<semantic:deleteAction>
+			<semantic:DeleteAction />
+		</semantic:deleteAction>
+
+		<semantic:copyAction>
+			<semantic:CopyAction />
+		</semantic:copyAction>
+
+		<semantic:editAction>
+			<semantic:EditAction />
+		</semantic:editAction>
+		<!--Semantic ShareMenu Buttons-->
+		<!--<semantic:sendEmailAction>-->
+		<!--	<semantic:SendEmailAction-->
+		<!--		id="shareEmail"-->
+		<!--		press=".onSendEmailPress"/>-->
+		<!--</semantic:sendEmailAction>-->
+
+		<!--<semantic:closeAction>-->
+		<!--	<semantic:CloseAction-->
+		<!--			id="closeColumn"-->
+		<!--			press=".onCloseDetailPress"/>-->
+		<!--</semantic:closeAction>-->
+
+		<!--<semantic:fullScreenAction>-->
+		<!--	<semantic:FullScreenAction-->
+		<!--			id="enterFullScreen"-->
+		<!--			visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"-->
+		<!--			press=".toggleFullScreen"/>-->
+		<!--</semantic:fullScreenAction>-->
+		<!--<semantic:exitFullScreenAction>-->
+		<!--	<semantic:ExitFullScreenAction-->
+		<!--			id="exitFullScreen"-->
+		<!--			visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"-->
+		<!--			press=".toggleFullScreen"/>-->
+		<!--</semantic:exitFullScreenAction>-->
+
+	</semantic:SemanticPage>
+
+</mvc:View>
